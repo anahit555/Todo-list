@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+Header h1 {
+  width: auto;
+  height: 100px;
+  background-color: black;
+  text-align:left ;
+  color: #ffffff;
+  padding-top: 50px ;
+  padding-left:50px ;
+}
+
+Form{
+  text-align: center;
+  padding: 5px;
+  margin: 30px auto;
+  max-width: 600px;
+
+}
+.Form__label_container {
+  display: block;
+  text-align: left;
+}
+.Form__label_inline {
+  display: inline-block;
+}
+.Form__input {
+  border: thin solid #76ac26;
+  display: block;
+  font-size: inherit;
+  padding: 10px;
+  width: 100%;
+}
+.Form__button {
+  background-color: #76ac26;
+  border: thin solid transparent;
+  color: #fff;
+  font-size: inherit;
+  text-decoration: none;
+  margin-top: 10px;
+  padding: 10px 25px;
+}
+.Form__label{
+  display: block;
+  text-align: left;
+}
+.Form__checkbox {
+  display: inline-block;
+  margin-left: 10px;
+  text-align: right;
+  width: auto;
+}
+ /* input {
+  border: green;
+  width: 20px;
+  height: 200px;
+} */
