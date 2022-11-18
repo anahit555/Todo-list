@@ -3,9 +3,8 @@ import Completed from "./Completed";
 import FormComponent from "./FormComponent";
 import Header from "./Header";
 
-function Todolist (){
-
-    return(
+function TodoList() {
+    return (
         <div>
             <Header />
             <FormComponent />
@@ -14,4 +13,4 @@ function Todolist (){
     )
 }
 
-export default Todolist;
+export default TodoList;
