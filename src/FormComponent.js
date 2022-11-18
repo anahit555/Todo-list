@@ -1,60 +1,76 @@
-import React from "react";
-import { useState } from "react";
+import React, { useCallback, useState } from 'react';
 import './FormComponent.css';
 
-function FormComponent (){
-    const [name, setName] = useState("");
+const DEFAULT_STATE = {
+    name: '',
+    deadline: '',
+    isCompleted: false,
+};
 
+function FormComponent() {
+    const [state, setState] = useState(DEFAULT_STATE);
 
-    return(
+    const handleChange = useCallback((e) => {
+        const { name, value, checked, type } = e.target;
+
+        const newValue = ['radio', 'checkbox'].includes(type)
+            ? checked
+            : value;
+
+        setState(state => ({
+            ...state,
+            [name]: newValue,
+        }));
+    }, [setState]);
+
+    return (
         <form>
             <label className="Form__label_container">
                 <h1 className="Form__label">
                     Name:
                 </h1>
-                    <input 
-                        className="Form__input"
-                        type="text"
-                        name="Name" 
-                        placeholder=""
-                        value={name}
-                        onChange={(e) => setName(e.target.value)} 
-                    />
-            </label>
-            <br/>
-            <label className="Form__label_container">
-               <h1 className="Form__label">
-                    Deadline:
-                </h1>
-                    <input 
-                        className="Form__input"
-                        type="data"
-                        name="deadline" 
-                        placeholder="mm/dd/yyyy" 
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                />
-            </label>
-            <br/>
-            <label className="Form__label_container">
-                <h1 className="Form__label_inline">
-                    Completed:  
-                </h1>
-                <input 
-                    className="Form__input Form__checkbox"
-                    type="checkbox"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
+                <input
+                    className="Form__input"
+                    type="text"
+                    name="name"
+                    value={state.name}
+                    onChange={handleChange}
                 />
             </label>
             <br />
+            <label className="Form__label_container">
+                <h1 className="Form__label">
+                    Deadline:
+                </h1>
                 <input
-                    className="Form__button"
-                    type="submit"
+                    className="Form__input"
+                    type="data"
+                    name="deadline"
+                    placeholder="mm/dd/yyyy"
+                    value={state.deadline}
+                    onChange={handleChange}
                 />
+            </label>
+            <br />
+            <label className="Form__label_container">
+                <h1 className="Form__label_inline">
+                    Completed:
+                </h1>
+                <input
+                    className="Form__input Form__checkbox"
+                    type="checkbox"
+                    value={state.isCompleted}
+                    onChange={handleChange}
+                />
+            </label>
+            <br />
+            <input
+                className="Form__button"
+                type="submit"
+            />
         </form>
-        
-        
+
+
     );
 }
 
